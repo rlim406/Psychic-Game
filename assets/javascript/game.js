@@ -59,6 +59,18 @@ var losses = 0;
 var guessesLeft = 9;
 var guesses = [];
 
+function reset() {
+  guesses = [];
+  guessesLeft = 9;
+}
+
+function hardReset() {
+  wins = 0;
+  losses = 0;
+  guessesLeft = 9;
+  guesses = [];
+}
+
 document.onkeyup = function(event) {
   var userGuess = event.key;
 
@@ -77,10 +89,11 @@ document.onkeyup = function(event) {
 
   if (guessesLeft === 0) {
     losses++;
-    guesses = [];
-    guessesLeft = 9;
+    reset();
   }
-
+  if (userGuess === '5') {
+    hardReset();
+  }
   var html =
     '<p> You chose: ' +
     userGuess +

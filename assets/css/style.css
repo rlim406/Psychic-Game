@@ -1,0 +1,24 @@
+h1 {
+  font-family: 'EB Garamond', serif;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+#main {
+  font-family: 'Alegreya', serif;
+  font-size: 20px;
+}
+
+p {
+  font-family: 'Alegreya', serif;
+  font-size: 18px;
+}
+
+#crystal {
+  float: left;
+  padding-right: 20px;
+}
+
+body {
+  background-image: url('symphony.png');
+}
