@@ -82,7 +82,7 @@ document.onkeyup = function(event) {
 
   if (userGuess === computerGuess) {
     wins++;
-    guesses = [];
+    reset();
     alert('Matched!: ' + computerGuess);
     startAgain();
   }
