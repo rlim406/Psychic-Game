@@ -26,7 +26,6 @@ var computerChoices = [
   'y',
   'z'
 ];
-
 var userChoices = [
   'a',
   'b',
@@ -57,45 +56,48 @@ var userChoices = [
 ];
 var wins = 0;
 var losses = 0;
-var guessesLeft = 10;
+var guessesLeft = 9;
+var guesses = [];
 
 document.onkeyup = function(event) {
-  var userGuess = event.key.toLowerCase();
-
-  var guesses = '';
-  guesses = userGuess;
+  var userGuess = event.key;
 
   var computerGuess =
     computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
   if (userGuess === computerGuess) {
     wins++;
-  } else if (userGuess != computerGuess) {
-    losses++;
+    guesses = [];
+  }
+
+  if (userGuess != computerGuess) {
     guessesLeft--;
+    guesses.push(userGuess);
   }
 
   if (guessesLeft === 0) {
-    alert('You Lost! Game will reset!');
+    losses++;
+    guesses = [];
+    guessesLeft = 9;
   }
 
   var html =
-    '<p>You chose: ' +
+    '<p> You chose: ' +
     userGuess +
     '</p>' +
-    '<p>The computer chose: ' +
+    '<p> The computer chose: ' +
     computerGuess +
     '</p>' +
-    '<p>Wins: ' +
+    '<p> Wins: ' +
     wins +
     '</p>' +
-    '<p>Losses: ' +
+    '<p> Losses: ' +
     losses +
     '</p>' +
-    '<p>Guesses left: ' +
+    '<p> Guesses remaining: ' +
     guessesLeft +
     '</p>' +
-    '<p>Guesses so far: ' +
+    '<p> Guesses so far: ' +
     guesses +
     '</p>';
 
