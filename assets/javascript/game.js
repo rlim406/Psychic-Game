@@ -70,16 +70,21 @@ function hardReset() {
   guessesLeft = 9;
   guesses = [];
 }
+function startAgain() {
+  computerGuess =
+    computerChoices[Math.floor(Math.random() * computerChoices.length)];
+}
+var computerGuess =
+  computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
 document.onkeyup = function(event) {
   var userGuess = event.key;
 
-  var computerGuess =
-    computerChoices[Math.floor(Math.random() * computerChoices.length)];
-
   if (userGuess === computerGuess) {
     wins++;
     guesses = [];
+    alert('Matched!: ' + computerGuess);
+    startAgain();
   }
 
   if (userGuess != computerGuess) {
@@ -94,13 +99,8 @@ document.onkeyup = function(event) {
   if (userGuess === '5') {
     hardReset();
   }
+
   var html =
-    '<p> You chose: ' +
-    userGuess +
-    '</p>' +
-    '<p> The computer chose: ' +
-    computerGuess +
-    '</p>' +
     '<p> Wins: ' +
     wins +
     '</p>' +
