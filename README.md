@@ -19,6 +19,6 @@ assets:
 ---->style.css
 ---->background image (symphony.png)
 --images
----->crystal ball imaage
+---->crystal_ball.jpg
 --javascript
 ---->game.js
