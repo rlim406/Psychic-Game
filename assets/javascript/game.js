@@ -1,118 +1,64 @@
-var computerChoices = [
-  'a',
-  'b',
-  'c',
-  'd',
-  'e',
-  'f',
-  'g',
-  'h',
-  'i',
-  'j',
-  'k',
-  'l',
-  'm',
-  'n',
-  'o',
-  'p',
-  'q',
-  'r',
-  's',
-  't',
-  'u',
-  'v',
-  'w',
-  'x',
-  'y',
-  'z'
-];
-var userChoices = [
-  'a',
-  'b',
-  'c',
-  'd',
-  'e',
-  'f',
-  'g',
-  'h',
-  'i',
-  'j',
-  'k',
-  'l',
-  'm',
-  'n',
-  'o',
-  'p',
-  'q',
-  'r',
-  's',
-  't',
-  'u',
-  'v',
-  'w',
-  'x',
-  'y',
-  'z'
-];
+var computerChoices = 'abcdefghijklmnopqrstuvwxyz'.split('');
+
 var wins = 0;
 var losses = 0;
 var guessesLeft = 9;
 var guesses = [];
+var computerGuess =
+  computerChoices[Math.floor(Math.random() * (computerChoices.length - 1))];
 
 function reset() {
-  guesses = [];
   guessesLeft = 9;
+  guesses = [];
+  showUserGuesses();
+  setWins();
+  setLosses();
+  setGuessesLeft();
 }
 
-function hardReset() {
-  wins = 0;
-  losses = 0;
-  guessesLeft = 9;
-  guesses = [];
+function setWins() {
+  document.getElementById('wins').innerHTML = wins;
 }
-function startAgain() {
-  computerGuess =
-    computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+function setLosses() {
+  document.getElementById('losses').innerHTML = losses;
 }
-var computerGuess =
-  computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+function setGuessesLeft() {
+  document.getElementById('guessesLeft').innerHTML = guessesLeft;
+}
+
+function showUserGuesses() {
+  document.getElementById('guesses').innerHTML = guesses.join(', ');
+}
+
+reset();
 
 document.onkeyup = function(event) {
-  var userGuess = event.key;
+  var userGuess = event.key.toLowerCase();
+  //check if the user input is valid
+  if (!computerChoices.includes(userGuess)) {
+    alert('Please pick a letter from the alphabet only');
+  } else if (guesses.includes(userGuess)) {
+    alert('You cannot pick the same letter twice');
+  } else {
+    guesses.push(userGuess);
+    guessesLeft--;
+    setGuessesLeft();
+    showUserGuesses();
+  }
 
   if (userGuess === computerGuess) {
     wins++;
-    reset();
     alert('Matched!: ' + computerGuess);
-    startAgain();
-  }
-
-  if (userGuess != computerGuess) {
-    guessesLeft--;
-    guesses.push(userGuess);
+    setWins();
+    reset();
   }
 
   if (guessesLeft === 0) {
     losses++;
+    setLosses();
+    alert('Better luck next time :P');
     reset();
   }
-  if (userGuess === '5') {
-    hardReset();
-  }
-
-  var html =
-    '<p> Wins: ' +
-    wins +
-    '</p>' +
-    '<p> Losses: ' +
-    losses +
-    '</p>' +
-    '<p> Guesses remaining: ' +
-    guessesLeft +
-    '</p>' +
-    '<p> Guesses so far: ' +
-    guesses +
-    '</p>';
-
-  document.querySelector('#game').innerHTML = html;
 };
