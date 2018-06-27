@@ -14,6 +14,7 @@ function reset() {
   setWins();
   setLosses();
   setGuessesLeft();
+  updateLetter();
 }
 
 function setWins() {
@@ -30,6 +31,11 @@ function setGuessesLeft() {
 
 function showUserGuesses() {
   document.getElementById('guesses').innerHTML = guesses.join(', ');
+}
+
+function updateLetter() {
+  computerGuess =
+    computerChoices[Math.floor(Math.random() * (computerChoices.length - 1))];
 }
 
 reset();
@@ -52,6 +58,7 @@ document.onkeyup = function(event) {
     wins++;
     alert('Matched!: ' + computerGuess);
     setWins();
+    updateLetter();
     reset();
   }
 
