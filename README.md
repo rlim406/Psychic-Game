@@ -7,8 +7,8 @@
 3.  If the user fails to guess the letter after the 9 tries then the losses go up by 1.
 4.  The guesses the user has made so far will also be displayed.
 5.  If the user is able to guess the correct letter then they will receive an alert saying Matched! and the letter they have guessed correctly.
-6.  If the user has failed to guess correctly after the 9 attempts or if they did guess correctly, the guesses they have made so far section will clear and the guesses left will also reset back to 9.
-7.  If the user wishes to reset the number of wins and losses back to 0 then they will type in the number 5.
+6.  The computer will then choose a new letter.
+7.  If the user has failed to guess correctly after the 9 attempts or if they did guess correctly, the guesses they have made so far section will clear and the guesses left will also reset back to 9.
 
 **Files:**
 
