@@ -5,27 +5,30 @@
   <meta charset="utf-8" />
   <title>Psychic Game</title>
   <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <link href="https://fonts.googleapis.com/css?family=EB+Garamond:400,700i" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Alegreya" rel="stylesheet">
 </head>
 
 <body>
-  <h1>The Psychic Game</h1>
-  <br>
-  <p id=main>Guess what letter I'm thinking of! Type in a letter to begin the game!</p>
-  <br>
-  <img id="crystal" src="assets/images/Crystal_Ball.jpg" alt="Crystal Ball" width="300" height="300"> Wins:
-  <span id="wins"></span>
-  <br> Losses:
-  <span id="losses"></span>
-  <br> Guesses Left:
-  <span id="guessesLeft"></span>
-  <br> Your Guesses So Far:
-  <span id="guesses"></span>
-  <br>
-  <script type="text/javascript" src="assets/javascript/game.js">   
-  </script>
+  <div id="box" class="container">
+    <h1>The Psychic Game</h1>
+    <br>
+    <p id=main>Guess what letter I'm thinking of! Type in a letter to begin the game!</p>
+    <br>
+    <img id="crystal" src="assets/images/Crystal_Ball.jpg" alt="Crystal Ball" width="300" height="300"> Wins:
+    <span id="wins"></span>
+    <br> Losses:
+    <span id="losses"></span>
+    <br> Guesses Left:
+    <span id="guessesLeft"></span>
+    <br> Your Guesses So Far:
+    <span id="guesses"></span>
+    <br>
+    <script type="text/javascript" src="assets/javascript/game.js">   
+    </script>
+  </div>
 </body>
 
 </html>
